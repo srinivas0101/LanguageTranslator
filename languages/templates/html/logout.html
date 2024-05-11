@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logout</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: url('https://source.unsplash.com/random') no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        text-align: center;
+        color: white;
+        padding: 30px;
+        border-radius: 10px;
+        background: linear-gradient(to right, #4e54c8, #8f94fb);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        margin-top: 0;
+        font-size: 36px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    p {
+        font-size: 20px;
+    }
+    .logout-button {
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #7145FF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .logout-button:hover {
+        background-color: #5A2DDC;
+    }
+    /* Top-up message styles */
+    .top-up-message {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        z-index: 999;
+        display: none;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Logout</h1>
+        <p>Are you sure you want to logout?</p>
+        <button class="logout-button" onclick="logout()">Logout</button>
+    </div>
+
+    <!-- Top-up message -->
+    <div id="topUpMessage" class="top-up-message">
+        You have successfully logged out!
+    </div>
+
+    <script>
+        function logout() {
+            // Show top-up message
+            var topUpMessage = document.getElementById("topUpMessage");
+            topUpMessage.style.display = "block";
+            // Redirect after 3 seconds
+            setTimeout(function() {
+                window.location.href = "{% url 'log' %}";
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

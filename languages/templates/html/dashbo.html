@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>User Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo"></div>
+        <ul class="menu">
+            <li class="active">
+                <a href="{% url 'das' %}">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'pro' %}">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'set' %}">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'his' %}">
+                    <i class="fas fa-history"></i>
+                    <span>History</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="{% url 'lot' %}">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <h2>Dashboard</h2>
+            </div>
+            <div class="user--info">
+                <div class="searh--box">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" placeholder="Search" />
+                </div>
+                <span class="additional-text">{{username}}<br>{{usermail}}</span>
+                    <img src="{% static 'image/prof.png' %}" alt="" id="dropdownBtn">
+            </div>
+        </div>
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span>Welcome</span>
+                <h2>{{username}}</h2>
+            </div>
+        </div>
+
+        <div class="card--container">
+            <h3 class="main--title">Choose your option
+                </h3>
+            <div class="card--wrapper">
+                <div class="payment--card">
+                    <div class="card--header">
+                        <div class="amount">
+                            <span class="title">
+                                Text Translation </span>
+                            <span class="amount-value">Text-Text
+                                </span>
+                        </div>
+                        <i id="icon" class="fas fa-font icon"></i>
+                    </div>
+                    <span class="card-detail">select source language and 
+                        </span>
+                </div>
+                <div class="payment--card">
+                    <div class="card--header">
+                        <div class="amount">
+                            <span class="title">
+                                Speech Translation </span>
+                            <span class="amount-value">Speech to Text
+                                </span>
+                        </div>
+                        <i id="texts" class="fas fa-microphone icon"></i>
+                    </div>
+                    <span class="card-detail">It will recognize Speech to translate
+                        </span>
+                </div>
+                <div class="payment--card
+                dark-purple">
+                    <div class="card--header">
+                        <div class="amount">
+                            <span class="title">
+                                Image Translation </span>
+                            <span class="amount-value">Image to text
+                                </span>
+                        </div>
+                        <i id="ocrs" class="fas fa-image icon"></i>
+                    </div>
+                    <span class="card-detail">It will extract text from Image
+                            </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabular--wrapper">
+            <h3 class="main--title">    History Data
+                data</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Transaction Type</th>
+                            <th>Date</th>
+                            <th>Source Language</th>
+                            <th>Destination Language</th>
+                            <th>Source Text</th>
+                            <th>Destination Text</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for lan in langs %}
+                        <tr>
+                            <td>{{lan.ids}}</td>
+                            <td>{{lan.paragraphs}}</td>
+                            <td>{{lan.timestamp}}</td>
+                            <td>{{lan.srclang}}</td>
+                            <td>{{lan.destlang}}</td>
+                            <td>{{lan.srctext}}</td>
+                            <td>{{lan.desttext}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("icon").addEventListener("click", function() {
+          window.location.href = "{% url 'tex' %}";
+        });
+        document.getElementById("texts").addEventListener("click", function() {
+          window.location.href = "{% url 'vps' %}";
+        });
+        document.getElementById("ocrs").addEventListener("click", function() {
+          window.location.href = "{% url 'oss' %}";
+        });
+        </script>
+</body>

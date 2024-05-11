@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>User Settings</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/setl.css' %}">
+    <!-- Font Awesome CDN link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo"><i class="fa-solid fa-bars"></i></div>
+        <ul class="menu">
+            <li>
+                <a href="{% url 'das' %}">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'pro' %}">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="{% url 'set' %}">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="{% url 'lot' %}">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'his' %}">
+                    <i class="fas fa-history"></i>
+                    <span>History</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <h2>User Settings</h2>
+            </div>
+            <div class="user--info">
+                <img src="{% static 'image/prof.png' %}" alt="User Image" />
+            </div>
+        </div>
+        <div class="card--container">
+            <h3 class="main--title">Change Password</h3>
+            <div class="card--wrapper">
+                <form method="post" class="pass4">
+                {% csrf_token %}
+                <div class="setting--item">
+                    <label for="old-password">Old Password:</label>
+                    <input type="password" id="old-password" name="old_password" required>
+                </div>
+                <div class="setting--item2">
+                    <label for="new-password">New Password:</label>
+                    <input type="password" id="new-password" name="new_password" required>
+                </div>
+                <div class="setting--item3">
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm_password" required>
+                </div>
+                <button id="change-password-btn">Change Password</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<div class="popup" id="popup-message"></div>
+
+<script>
+     document.addEventListener('DOMContentLoaded', function () {
+            var errorMessage = "{{ errorm }}";
+            if (errorMessage) {
+                var popup = document.getElementById('popup-message');
+                popup.textContent = errorMessage;
+                popup.style.display = 'block';
+                setTimeout(function () {
+                popup.style.display = 'none';
+            }, 5000);
+            }
+        });
+</script>
+
+</html>

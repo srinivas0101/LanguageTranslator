@@ -1,0 +1,389 @@
+@import url("https://fonts.googleapis.com/css2? family=Poppins:wght@400;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+}
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 65px;
+    height: 100vh;
+    padding: 0 0.17rem;
+    color: #fff;
+    overflow: hidden;
+    transition: all 0.5s linear;
+    background: rgba(113, 99, 186, 255);
+}
+
+.sidebar:hover {
+    width: 240px;
+    transition: 0.5s;
+}
+
+.logo {
+    height: 80px;
+    padding: 16px;
+}
+
+.menu {
+    height: 88%;
+    position: relative;
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    padding: 1rem;
+    margin: 8px 0;
+    border-radius: 8px;
+    transition: all 0.5s ease-in-out;
+}
+
+.menu li:hover,
+.active {
+    background: #e0e0e058;
+}
+
+.menu a {
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.menu a span {
+    overflow: hidden;
+}
+
+.menu a i {
+    font-size: 1.2rem;
+}
+
+.logout {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.main--content {
+    position: relative;
+    background: #ebe9e9;
+    width: 100%;
+    padding: 1rem;
+}
+
+.header--wrapper img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.header--wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px 2rem;
+    margin-bottom: 1rem;
+}
+
+.header--title {
+    color: rgba(113, 99, 186, 255);
+}
+
+.user--info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+.card--container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.card--wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card--wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.main--title {
+    color: rgba(113, 99, 186, 255);
+    padding-bottom: 30px;
+    font-size: 20px;
+}
+
+.payment--card {
+    background: rgb(229, 223, 223);
+    border-radius: 10px;
+    padding: 1.2rem;
+    width: 290px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.5s ease-in-out;
+}
+
+.payment--card:hover {
+    transform: translateY(-5px)
+}
+
+.card--header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.amount {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 12px;
+    font-weight: 200;
+}
+
+.amount--value {
+    font-size: 24px;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 600;
+}
+
+.icon {
+    color: #fff;
+    padding: 1rem;
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    background: red;
+}
+
+.card-detail {
+    font-size: 18px;
+    color: #777777;
+    letter-spacing: 2px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.dark-puple {
+    background: purple
+}
+
+.tabular--wrapper {
+    background: #fff;
+    margin-top: 1rem;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.table-container {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: rgba(113, 99, 186, 255);
+    color: #fff;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+}
+
+tbody {
+    background: #f2f2f2;
+}
+
+td {
+    padding: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background: #fff;
+}
+
+tfoot {
+    background: rgba(113, 99, 186, 255);
+    font-weight: bold;
+    color: #fff;
+}
+
+tfoot td {
+    padding: 15px;
+    color: #fff;
+}
+
+.table-container button {
+    color: green;
+    background: none;
+    cursor: pointer;
+}
+/* Enhancements for profile cards */
+.profile--card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile--card .card--header {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.profile--card h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+    /* Gradient background */
+    background: linear-gradient(45deg, #af52de, #c062cb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.profile--card .card--content p {
+    margin-bottom: 1rem;
+    font-size: 16px;
+    color: #666;
+    /* Add outlines */
+    border-left: 3px solid #a747bd;
+    padding-left: 10px;
+}
+
+.card--wrapper {
+    display: flex;
+    flex-direction: column; /* Change to column */
+    gap: 1rem;
+}
+
+.setting--item {
+    display: flex;
+    flex-direction: row; /* Change to row */
+    align-items: center; /* Align items vertically */
+    margin-bottom: 2rem;
+}
+.setting--item3 {
+    display: flex;
+    flex-direction: row; /* Change to row */
+    align-items: center; /* Align items vertically */
+    margin-bottom: 2rem;
+}
+.setting--item2 {
+    display: flex;
+    flex-direction: row; /* Change to row */
+    align-items: center; /* Align items vertically */
+    margin-bottom: 2rem;
+}
+
+.setting--item label {
+    margin-right: 3rem; /* Add spacing between label and input */
+    background: linear-gradient(45deg, #af52de, #c062cb);
+    margin-bottom: 4px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.setting--item2 label {
+    margin-right: 2.5rem; /* Add spacing between label and input */
+    color: rgba(113, 99, 186, 255);
+    margin-bottom: 4px;
+    
+}
+.setting--item3 label {
+    margin-right: 1rem; /* Add spacing between label and input */
+    background: linear-gradient(45deg, #af52de, #c062cb);
+    -webkit-background-clip: text;
+    margin-bottom: 4px;
+    -webkit-text-fill-color: transparent;
+}
+
+.setting--item input {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    bottom: 4px;
+    flex: 0.4; /* Allow input to take remaining space */
+}
+.setting--item3 input {
+    padding: 0.5rem;
+    border-radius: 8px;
+    bottom: 4px;
+    border: 1px solid #ccc;
+    flex: 0.4; /* Allow input to take remaining space */
+}
+.setting--item2 input {
+    padding: 0.5rem;
+    border-radius: 8px;
+    bottom: 4px;
+    border: 1px solid #ccc;
+    flex: 0.4; /* Allow input to take remaining space */
+}
+
+#change-password-btn {
+    padding: 0.8rem 1rem;
+    width: 500px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #7b3a9b, #c062cb);
+    color: #fff;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+#change-password-btn:hover {
+    background-color: #0056b3;
+}
+
+.popup {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(9, 136, 2, 0.8);
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    display: none;
+}

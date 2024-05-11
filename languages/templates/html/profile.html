@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>User Profile</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sttl.css' %}">
+    <!-- Font Awesome CDN link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo"><i class="fa-solid fa-bars"></i></div>
+        <ul class="menu">
+            <li>
+                <a href="{% url 'das' %}">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="{% url 'pro' %}">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'set' %}">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'his' %}">
+                    <i class="fas fa-history"></i>
+                    <span>History</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="{% url 'lot' %}">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <h2>User Profile</h2>
+            </div>
+            <div class="user--info">
+                <img src="{% static 'image/prof.png' %}" alt="User Image" />
+            </div>
+        </div>
+        <div class="card--container">
+            <div class="card--wrapper">
+                <div class="profile--card">
+                    <div class="card--header">
+                        <h3>Personal Information</h3>
+                    </div>
+                    <div class="card--content">
+                        <p><strong>Name:</strong> {{username}}</p>
+                        <p><strong>Email:</strong> {{usermail}}</p>
+                        <p><strong>Location:</strong> {{countr}}</p>
+                        <!-- Add more personal information here -->
+                    </div>
+                </div>
+                <div class="profile--card">
+                    <div class="card--header">
+                        <h3>Contact Information</h3>
+                    </div>
+                    <div class="card--content">
+                        <p><strong>Country:</strong> {{countr}}</p>
+                        <p><strong>Email:</strong> {{usermail}}</p>
+                        <!-- Add more contact information here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

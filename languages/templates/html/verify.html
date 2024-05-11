@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verify OTP</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        height: 100vh;
+    }
+    .container {
+        background-color: #fff;
+        padding: 40px; /* Increased padding */
+        border-radius: 12px; /* Increased border-radius */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: box-shadow 0.3s ease; /* Added transition */
+        max-width: 400px; /* Increased max-width */
+        width: 100%; /* Added width */
+    }
+    h2 {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 8px; /* Adjusted margin */
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 12px; /* Increased padding */
+        border: 1px solid #ccc;
+        border-radius: 8px; /* Increased border-radius */
+        transition: border-color 0.3s ease; /* Added transition */
+    }
+    input[type="text"]:focus {
+        border-color: #23bdb8; /* Changed border color on focus */
+    }
+    button {
+        padding: 12px 24px; /* Increased padding */
+        background: linear-gradient(135deg, #23bdb8, #43e97b);
+        color: #fff;
+        border: none;
+        border-radius: 25px; /* Changed button shape to rounded */
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s ease; /* Added transitions */
+        display: block;
+        margin: 0 auto; /* Center button horizontally */
+    }
+    button:hover {
+        background: linear-gradient(135deg, #00b4db, #0083b0);
+        transform: scale(1.05); /* Added scale effect on hover */
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Enter OTP to Verify</h2>
+    <form id="verifyOTPForm" action="{% url 'vot' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="otp">OTP:</label>
+            <input type="text" id="otp" name="otps" required>
+        </div>
+        <button type="submit">Verify</button>
+    </form>
+</div>
+</body>
+{% if error_message %}
+<script>
+    var messd = "{{ error_message|escapejs }}"; // Use escapejs filter for safety
+    alert(messd);
+</script>
+{% endif %}
+</html>
+</html>

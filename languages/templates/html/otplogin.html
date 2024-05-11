@@ -1,0 +1,88 @@
+<!-- forgot_password.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgot Password</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient Background */
+      padding: 40px; /* Increased padding */
+      border-radius: 15px; /* Increased border-radius for smoother corners */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: all 0.3s ease; /* Smooth transition for hover effect */
+      max-width: 400px; /* Added max-width */
+      width: 100%; /* Added width */
+    }
+    input[type="email"] {
+      width: calc(100% - 24px); /* Adjusted width to accommodate padding and border */
+      padding: 15px; /* Increased padding */
+      margin: 15px 0; /* Increased margin */
+      border: none;
+      border-radius: 25px; /* Rounded input field */
+      box-sizing: border-box;
+      transition: all 0.3s ease; /* Smooth transition for hover effect */
+      font-size: 16px; /* Increased font size */
+    }
+    button {
+      background: linear-gradient(to right, #3a7bd5, #3a6073); /* Gradient Button */
+      color: white;
+      padding: 15px 30px; /* Increased padding */
+      border: none;
+      border-radius: 25px; /* Rounded button */
+      cursor: pointer;
+      transition: all 0.3s ease; /* Smooth transition for hover effect */
+      font-size: 18px; /* Increased font size */
+      width: 100%; /* Added width */
+      max-width: 250px; /* Added max-width */
+      margin: 0 auto; /* Centered button */
+      display: block; /* Displayed as block element */
+    }
+    button:hover {
+      background: linear-gradient(to right, #4c92d1, #3e7cc9); /* Gradient Button on Hover */
+      transform: scale(1.05); /* Scale effect on hover */
+    }
+    .error-message {
+      color: red;
+      margin-top: 10px;
+    }
+    .back-to-login {
+      margin-top: 20px; /* Added margin to separate from the form */
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      display: block;
+    }
+  </style>  
+</head>
+<body>
+  <div class="container">
+    <h2>Forgot Password</h2>
+    {% if email_not_found %}
+    <p class="error-message">Email not found. Please enter a valid email address.</p>
+    {% endif %}
+    {% if error_message %}
+    <p class="error-message">{{ error_message }}</p>
+    {% endif %}
+    <form method="post" action="{% url 'otp' %}">
+      {% csrf_token %}
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <button type="submit">Get OTP</button>
+    </form>
+    <a href="{% url 'log' %}" class="back-to-login">Back to Login</a>
+  </div>
+</body>
+</html>
